@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chrominsky | Software engineer</title>
+<meta name="description" content="Chrominsky: C# and .NET backend engineer building focused native apps for macOS, iOS and iPadOS. DevPulse, Mighty Markdown, CloudLatch, TapVault and open .NET work.">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="Chrominsky | Software engineer">
+<meta property="og:description" content="Backend in C#. Apps in Swift. Built with care.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161310'/%3E%3Cpath d='M41 20a15 15 0 1 0 0 24' fill='none' stroke='%23ffb224' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='45' cy='32' r='4' fill='%23ece4d4'/%3E%3C/svg%3E">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,100..900,0..100;1,9..144,100..900,0..100&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #13110e;
+  --bg-2: #1b1813;
+  --panel: rgba(32, 28, 22, .72);
+  --line: rgba(236, 228, 212, .12);
+  --line-strong: rgba(236, 228, 212, .24);
+  --ink: #ece4d4;
+  --ink-2: #b3a993;
+  --ink-3: #7d7461;
+  --amber: #ffb224;
+  --amber-deep: #e08a00;
+  --amber-glow: rgba(255, 178, 36, .16);
+  --mint: #6fe3b4;
+  --rust: #ff6a3d;
+  --grain-opacity: .07;
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1240px;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f2ecdf;
+    --bg-2: #e9e1d0;
+    --panel: rgba(255, 251, 242, .78);
+    --line: rgba(32, 26, 18, .13);
+    --line-strong: rgba(32, 26, 18, .28);
+    --ink: #1c1812;
+    --ink-2: #4f4636;
+    --ink-3: #82765f;
+    --amber: #b8600a;
+    --amber-deep: #8f4700;
+    --amber-glow: rgba(214, 120, 10, .14);
+    --mint: #12855a;
+    --rust: #c2401a;
+    --grain-opacity: .05;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f2ecdf; --bg-2: #e9e1d0; --panel: rgba(255, 251, 242, .78);
+  --line: rgba(32, 26, 18, .13); --line-strong: rgba(32, 26, 18, .28);
+  --ink: #1c1812; --ink-2: #4f4636; --ink-3: #82765f;
+  --amber: #b8600a; --amber-deep: #8f4700; --amber-glow: rgba(214, 120, 10, .14);
+  --mint: #12855a; --rust: #c2401a; --grain-opacity: .05;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1100px 620px at 82% -8%, var(--amber-glow), transparent 62%),
+    radial-gradient(800px 500px at -10% 38%, color-mix(in srgb, var(--mint) 7%, transparent), transparent 60%),
+    radial-gradient(circle at 1px 1px, var(--line) 1px, transparent 1.4px);
+  background-size: auto, auto, 28px 28px;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+::selection { background: var(--amber); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+
+.skip { position: absolute; left: -999px; top: 8px; background: var(--amber); color: var(--bg); padding: 8px 12px; z-index: 200; }
+.skip:focus { left: 8px; }
+
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---------- header ---------- */
+header.top {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+.mark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; letter-spacing: -.01em; }
+.mark svg { width: 26px; height: 26px; }
+.mark span em { font-style: normal; color: var(--amber); }
+nav.links { display: flex; gap: clamp(12px, 2.4vw, 28px); font-size: 13px; }
+nav.links a { text-decoration: none; color: var(--ink-2); transition: color .2s; }
+nav.links a:hover { color: var(--amber); }
+nav.links a span { color: var(--ink-3); }
+@media (max-width: 640px) { nav.links a:not(.keep) { display: none; } }
+
+/* ---------- hero ---------- */
+.hero { padding: clamp(56px, 10vw, 128px) 0 clamp(64px, 9vw, 120px); position: relative; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 5vw, 72px); align-items: end; }
+@media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr; } }
+
+.kicker { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); display: flex; align-items: center; gap: 10px; margin: 0 0 28px; }
+.kicker::before { content: ""; width: 28px; height: 1px; background: var(--amber); }
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 0 color-mix(in srgb, var(--mint) 60%, transparent); animation: ping 2.4s ease-out infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--mint) 55%, transparent); } 80%, 100% { box-shadow: 0 0 0 10px transparent; } }
+
+h1.name {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 900;
+  font-size: clamp(64px, 13.5vw, 196px);
+  line-height: .84;
+  letter-spacing: -.045em;
+  margin: 0 0 clamp(24px, 3vw, 40px);
+}
+h1.name .dot { color: var(--amber); }
+.tagline {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 48, "SOFT" 100;
+  font-weight: 200;
+  font-size: clamp(26px, 3.6vw, 46px);
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  margin: 0 0 28px;
+  max-width: 17em;
+}
+.tagline i { font-weight: 500; font-style: italic; color: var(--amber); }
+.lede { color: var(--ink-2); max-width: 36em; margin: 0 0 32px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 18px; border-radius: 999px;
+  text-decoration: none; font-size: 13px; font-weight: 600;
+  border: 1px solid var(--line-strong);
+  transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, border-color .25s;
+}
+.btn:hover { transform: translateY(-2px); border-color: var(--amber); color: var(--amber); }
+.btn.primary { background: var(--amber); color: var(--bg); border-color: var(--amber); }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.btn svg { width: 16px; height: 16px; }
+
+/* run graph panel */
+.run {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px 22px 22px;
+  box-shadow: 0 40px 80px -40px rgba(0,0,0,.55), inset 0 1px 0 var(--line);
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
+}
+.run::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 40%, var(--amber-glow) 50%, transparent 60%); transform: translateX(-100%); animation: sweep 7s ease-in-out 2.6s infinite; pointer-events: none; }
+@keyframes sweep { 0%, 70% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+.run-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--ink-3); font-size: 12px; padding-bottom: 14px; border-bottom: 1px dashed var(--line-strong); margin-bottom: 14px; }
+.run-head b { color: var(--ink); font-weight: 600; }
+.badge { font-size: 11px; padding: 3px 9px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.badge.live { color: var(--mint); }
+.badge.dev { color: var(--amber); }
+.stages { list-style: none; margin: 0; padding: 0; }
+.stage { display: grid; grid-template-columns: 18px 1fr auto; gap: 12px; align-items: baseline; padding: 6px 0; }
+.stage .tree { color: var(--ink-3); white-space: pre; }
+.stage .glyph { font-weight: 600; text-align: center; }
+.stage .label { color: var(--ink); }
+.stage .label small { display: block; color: var(--ink-3); font-size: 12px; }
+.stage .time { color: var(--ink-3); font-size: 12px; }
+.ok .glyph { color: var(--mint); }
+.running .glyph { color: var(--amber); animation: blink 1.1s steps(2, jump-none) infinite; }
+.queued .glyph { color: var(--ink-3); }
+.queued .label { color: var(--ink-3); }
+@keyframes blink { 50% { opacity: .25; } }
+.stage.child { padding-left: 30px; grid-template-columns: 18px 1fr auto; }
+.run-foot { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line-strong); color: var(--ink-3); font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.run-foot code { color: var(--amber); }
+
+/* ---------- sections ---------- */
+section.block { padding: clamp(64px, 9vw, 120px) 0; border-top: 1px solid var(--line); }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 24px 48px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
+@media (max-width: 860px) { .sec-head { grid-template-columns: 1fr; } }
+.sec-num { font-size: 12px; color: var(--amber); letter-spacing: .14em; text-transform: uppercase; margin: 0 0 14px; }
+h2 {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 120, "SOFT" 20;
+  font-weight: 800;
+  font-size: clamp(40px, 6.4vw, 84px);
+  line-height: .92;
+  letter-spacing: -.035em;
+  margin: 0;
+}
+h2 i { font-weight: 200; font-style: italic; color: var(--ink-2); }
+.sec-head p { color: var(--ink-2); margin: 0; max-width: 34em; }
+
+/* apps */
+.apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .apps { grid-template-columns: 1fr; } }
+.app {
+  --tint: var(--amber);
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: clamp(22px, 3vw, 32px);
+  border-radius: 22px;
+  background:
+    radial-gradient(420px 220px at 100% 0%, color-mix(in srgb, var(--tint) 14%, transparent), transparent 70%),
+    var(--panel);
+  border: 1px solid var(--line);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s;
+  overflow: hidden;
+}
+.app:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--tint) 55%, transparent); }
+.app.devpulse { --tint: #4fa3ff; }
+.app.markdown { --tint: #ff8a5c; }
+.app.cloudlatch { --tint: #3fb27f; }
+.app.tapvault { --tint: #6fe3b4; }
+.app-top { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.icon { width: 64px; height: 64px; border-radius: 15px; flex: none; box-shadow: 0 10px 24px -10px rgba(0,0,0,.6), 0 0 0 1px var(--line); overflow: hidden; background: #f8faf6; }
+.icon img { width: 100%; height: 100%; object-fit: cover; }
+.icon.svg { display: grid; place-items: center; }
+.icon.svg img { width: 72%; height: 72%; object-fit: contain; }
+.app h3 {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+  font-weight: 700;
+  font-size: clamp(28px, 3.2vw, 38px);
+  letter-spacing: -.025em;
+  line-height: 1;
+  margin: 0 0 6px;
+}
+.platform { font-size: 12px; color: var(--ink-3); }
+.app .pitch { font-family: var(--serif); font-variation-settings: "opsz" 24; font-weight: 300; font-size: 21px; line-height: 1.3; margin: 0 0 18px; letter-spacing: -.01em; }
+.facts { list-style: none; padding: 0; margin: 0 0 24px; color: var(--ink-2); font-size: 13.5px; }
+.facts li { padding: 7px 0 7px 22px; position: relative; border-top: 1px solid var(--line); }
+.facts li::before { content: "→"; position: absolute; left: 0; color: var(--tint); }
+.app-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; font-size: 13px; }
+.app-foot a { text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; transition: color .2s, border-color .2s; }
+.app-foot a:hover { color: var(--tint); border-color: var(--tint); }
+.app-foot .badge { margin-right: auto; }
+.tech { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 20px; padding: 0; list-style: none; }
+.tech li { font-size: 11.5px; padding: 3px 9px; border-radius: 6px; background: color-mix(in srgb, var(--ink) 6%, transparent); color: var(--ink-2); }
+
+/* dotnet ledger */
+.ledger { border-top: 1px solid var(--line-strong); }
+.row {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1.1fr) minmax(0, 1.4fr) auto;
+  gap: 8px 28px;
+  align-items: baseline;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  position: relative;
+  transition: padding .3s cubic-bezier(.2,.8,.2,1);
+}
+.row::before { content: ""; position: absolute; left: 0; top: 0; bottom: -1px; width: 0; background: linear-gradient(90deg, var(--amber-glow), transparent); transition: width .4s; pointer-events: none; }
+.row:hover::before { width: 100%; }
+.row:hover { padding-left: 14px; }
+.row .yr { color: var(--ink-3); font-size: 13px; }
+.row .t { font-family: var(--serif); font-variation-settings: "opsz" 60; font-weight: 600; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.02em; line-height: 1.1; }
+.row .t small { display: block; font-family: var(--mono); font-size: 11.5px; font-weight: 400; color: var(--amber); letter-spacing: 0; margin-top: 6px; }
+.row .d { color: var(--ink-2); font-size: 13.5px; }
+.row .go { color: var(--ink-3); font-size: 18px; transition: transform .3s, color .3s; }
+.row:hover .go { transform: translateX(4px); color: var(--amber); }
+@media (max-width: 760px) {
+  .row { grid-template-columns: 56px minmax(0, 1fr); }
+  .row .d { grid-column: 2; }
+  .row .go { display: none; }
+}
+
+/* principles */
+.principles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--panel); }
+@media (max-width: 1000px) { .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .principles { grid-template-columns: 1fr; } }
+.p { padding: clamp(22px, 2.6vw, 32px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.p .n { font-family: var(--serif); font-weight: 100; font-size: 64px; line-height: 1; color: var(--amber); font-variation-settings: "opsz" 144; display: block; margin-bottom: 18px; }
+.p h3 { font-family: var(--serif); font-variation-settings: "opsz" 36; font-weight: 700; font-size: 22px; letter-spacing: -.015em; line-height: 1.15; margin: 0 0 10px; }
+.p p { margin: 0; color: var(--ink-2); font-size: 13.5px; }
+
+/* stack */
+.stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 900px) { .stack { grid-template-columns: 1fr; } }
+.col { padding: 26px 0 0; border-top: 2px solid var(--ink); }
+.col h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 18px; font-weight: 600; display: flex; justify-content: space-between; }
+.col h3 span { color: var(--ink-3); font-weight: 400; }
+.col ul { list-style: none; margin: 0; padding: 0; }
+.col li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 14px; }
+.col li span { color: var(--ink-3); font-size: 12px; text-align: right; }
+
+/* contact */
+.contact { padding: clamp(80px, 12vw, 160px) 0 clamp(48px, 6vw, 80px); border-top: 1px solid var(--line); text-align: left; }
+.contact h2 { font-size: clamp(48px, 9vw, 132px); max-width: 11em; }
+.contact h2 a { text-decoration: none; color: var(--amber); background: linear-gradient(currentColor, currentColor) 0 100% / 0 .06em no-repeat; transition: background-size .5s cubic-bezier(.2,.8,.2,1); }
+.contact h2 a:hover { background-size: 100% .06em; }
+.contact .meta { display: flex; flex-wrap: wrap; gap: 12px 36px; margin-top: 40px; color: var(--ink-2); font-size: 13px; }
+.contact .meta b { color: var(--ink); font-weight: 600; }
+footer { padding: 28px 0 40px; color: var(--ink-3); font-size: 12px; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* theme toggle */
+.theme { background: none; border: 1px solid var(--line-strong); color: var(--ink-2); border-radius: 999px; width: 34px; height: 34px; display: grid; place-items: center; cursor: pointer; transition: color .2s, border-color .2s; flex: none; }
+.theme:hover { color: var(--amber); border-color: var(--amber); }
+.theme svg { width: 16px; height: 16px; }
+
+/* ---------- motion: staggered load ---------- */
+.rise { opacity: 0; transform: translateY(22px); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(var(--i, 0) * 110ms + 80ms); }
+@keyframes rise { to { opacity: 1; transform: none; } }
+.name .ch { display: inline-block; opacity: 0; transform: translateY(.35em) rotate(4deg); animation: drop .9s cubic-bezier(.2,.9,.25,1.1) forwards; animation-delay: calc(var(--c) * 45ms + 160ms); }
+@keyframes drop { to { opacity: 1; transform: none; } }
+.stage { opacity: 0; animation: rise .6s ease-out forwards; animation-delay: calc(var(--s) * 180ms + 900ms); transform: translateX(-8px); }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--i, 0) * 90ms); }
+.reveal.in { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; animation-delay: 0ms !important; transition-duration: .001ms !important; transition-delay: 0ms !important; }
+  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Chrominsky, home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="var(--ink)"/><path d="M41 20a15 15 0 1 0 0 24" fill="none" stroke="var(--amber)" stroke-width="7" stroke-linecap="round"/><circle cx="45" cy="32" r="4" fill="var(--bg)"/></svg>
+      <span>chrominsky<em>/</em></span>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#apps" class="keep"><span>01</span> Apps</a>
+      <a href="#dotnet"><span>02</span> .NET</a>
+      <a href="#principles"><span>03</span> Principles</a>
+      <a href="#stack"><span>04</span> Stack</a>
+      <a href="#contact" class="keep"><span>05</span> Contact</a>
+    </nav>
+    <button class="theme" type="button" aria-label="Toggle color theme" id="theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker rise" style="--i:0"><span class="pulse" aria-hidden="true"></span>Software engineer · Poland · EN / PL</p>
+        <h1 class="name" aria-label="Chrominsky">
+          <span aria-hidden="true"><span class="ch" style="--c:0">C</span><span class="ch" style="--c:1">h</span><span class="ch" style="--c:2">r</span><span class="ch" style="--c:3">o</span><span class="ch" style="--c:4">m</span><br><span class="ch" style="--c:5">i</span><span class="ch" style="--c:6">n</span><span class="ch" style="--c:7">s</span><span class="ch" style="--c:8">k</span><span class="ch" style="--c:9">y</span><span class="ch dot" style="--c:10">.</span></span>
+        </h1>
+        <p class="tagline rise" style="--i:3">Backend in C#. Apps in Swift. <i>Built to be trusted.</i></p>
+        <p class="lede rise" style="--i:4">A .NET engineer who builds things end to end: versioned APIs and reusable libraries on the server, and focused native apps for macOS, iPhone and iPad. Each one does a single job well, keeps your data on your devices, and only claims what it can actually do.</p>
+        <div class="cta rise" style="--i:5">
+          <a class="btn primary" href="#apps">See the apps
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+          <a class="btn" href="https://github.com/Chrominskyy" rel="me">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            github.com/Chrominskyy</a>
+        </div>
+      </div>
+
+      <aside class="run rise" style="--i:4" aria-label="Career timeline shown as a pipeline run">
+        <div class="run-head"><span>run <b>#2026.11</b> · chrominsky/main</span><span class="badge dev">running</span></div>
+        <ol class="stages">
+          <li class="stage ok" style="--s:0"><span class="glyph">✓</span><span class="label">Foundations in C#<small>desktop tools, first services</small></span><span class="time">2014</span></li>
+          <li class="stage ok" style="--s:1"><span class="glyph">✓</span><span class="label">.NET 8 backends<small>clean architecture, Redis, Docker</small></span><span class="time">2024</span></li>
+          <li class="stage ok child" style="--s:2"><span class="glyph">✓</span><span class="label">Chrominsky.Utils on NuGet</span><span class="time">lib</span></li>
+          <li class="stage running" style="--s:3"><span class="glyph">●</span><span class="label">Native Apple apps<small>SwiftUI, WidgetKit, iCloud</small></span><span class="time">2026</span></li>
+          <li class="stage running child" style="--s:4"><span class="glyph">●</span><span class="label">DevPulse · Mighty Markdown</span><span class="time">macOS</span></li>
+          <li class="stage running child" style="--s:5"><span class="glyph">●</span><span class="label">CloudLatch · TapVault</span><span class="time">mac / iOS</span></li>
+          <li class="stage queued" style="--s:6"><span class="glyph">○</span><span class="label">App Store release<small>not started</small></span><span class="time">next</span></li>
+        </ol>
+        <div class="run-foot"><span>4 apps · 4 .NET repos public</span><span>view: <code>ascii</code></span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="apps" aria-labelledby="apps-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="sec-num reveal">01 / Now building</p>
+          <h2 id="apps-h" class="reveal" style="--i:1">Four apps,<br><i>one job each.</i></h2>
+        </div>
+        <p class="reveal" style="--i:2">Native utilities for macOS, iOS and iPadOS. Each comes with a public website, a support guide and a privacy policy, and each one states its availability honestly. None is on the App Store yet, and none of them says otherwise.</p>
+      </div>
+
+      <div class="apps">
+        <article class="app devpulse reveal" style="--i:0">
+          <div class="app-top">
+            <div class="icon"><img src="assets/icons/devpulse.webp" alt="" width="64" height="64" loading="lazy"></div>
+            <div><h3>DevPulse</h3><div class="platform">macOS · iOS · iPadOS</div></div>
+          </div>
+          <p class="pitch">Azure DevOps, out of the browser. Follow pipeline runs, read stage logs and work through boards in a native app.</p>
+          <ul class="facts">
+            <li>Draws each run as stages, jobs and tasks in the order of that run's compiled YAML, as cards or as an ASCII graph.</li>
+            <li>A real work item editor: every save checks the baseline revision, so it can't silently overwrite a colleague's change.</li>
+            <li>Desktop widgets for pinned runs. Sign in with Microsoft Entra ID or a personal access token.</li>
+          </ul>
+          <ul class="tech" aria-label="Technologies"><li>SwiftUI</li><li>WidgetKit</li><li>Azure DevOps REST</li><li>iCloud KV</li></ul>
+          <div class="app-foot">
+            <span class="badge dev">in development</span>
+            <a href="https://chrominskyy.github.io/devpulse-site/">Website ↗</a>
+            <a href="https://github.com/Chrominskyy/devpulse-site">Repo ↗</a>
+          </div>
+        </article>
+
+        <article class="app markdown reveal" style="--i:1">
+          <div class="app-top">
+            <div class="icon"><img src="assets/icons/mighty-markdown.webp" alt="" width="64" height="64" loading="lazy"></div>
+            <div><h3>Mighty Markdown</h3><div class="platform">macOS</div></div>
+          </div>
+          <p class="pitch">A native place to read, write and move around Markdown files.</p>
+          <ul class="facts">
+            <li>Read, Edit and Split modes, with source and preview kept on the same part of the document.</li>
+            <li>A filterable heading outline and a draggable minimap for long files.</li>
+            <li>Your files stay ordinary .md files. No account, analytics or advertising.</li>
+          </ul>
+          <ul class="tech" aria-label="Technologies"><li>SwiftUI</li><li>AppKit text</li><li>Swift Markdown</li><li>App Sandbox</li></ul>
+          <div class="app-foot">
+            <span class="badge dev">preparing for Mac App Store</span>
+            <a href="https://chrominskyy.github.io/mighty-markdown-site/">Website ↗</a>
+            <a href="https://github.com/Chrominskyy/mighty-markdown-site">Repo ↗</a>
+          </div>
+        </article>
+
+        <article class="app cloudlatch reveal" style="--i:2">
+          <div class="app-top">
+            <div class="icon svg"><img src="assets/icons/cloudlatch.svg" alt="" width="64" height="64" loading="lazy"></div>
+            <div><h3>CloudLatch</h3><div class="platform">macOS menu bar</div></div>
+          </div>
+          <p class="pitch">AWS MFA sessions and IAM role switching from the menu bar.</p>
+          <ul class="facts">
+            <li>Assume a configured role with MFA, see when the role session expires, and get it renewed five minutes before it does.</li>
+            <li>Uses the AWS SDK for Swift in-process, so the AWS CLI isn't needed.</li>
+            <li>You choose which directory it can touch. Temporary source sessions are kept in the macOS Keychain.</li>
+          </ul>
+          <ul class="tech" aria-label="Technologies"><li>Swift 6</li><li>AWS SDK for Swift</li><li>Keychain</li><li>MenuBarExtra</li></ul>
+          <div class="app-foot">
+            <span class="badge dev">preparing for App Store</span>
+            <a href="https://chrominskyy.github.io/cloudlatch-site/">Website ↗</a>
+            <a href="https://github.com/Chrominskyy/cloudlatch-site">Repo ↗</a>
+          </div>
+        </article>
+
+        <article class="app tapvault reveal" style="--i:3">
+          <div class="app-top">
+            <div class="icon"><img src="assets/icons/tapvault.webp" alt="" width="64" height="64" loading="lazy"></div>
+            <div><h3>TapVault</h3><div class="platform">iPhone · iPad</div></div>
+          </div>
+          <p class="pitch">Read, save and write compatible NFC tags, with a library synced across your devices.</p>
+          <ul class="facts">
+            <li>Shows NDEF records, tag technology, capacity and write access on a compatible iPhone.</li>
+            <li>Create links, text and vCard contacts. It asks before writing a tag, then reads it back to confirm the write worked.</li>
+            <li>SwiftData library with private iCloud sync. Interface in Polish and English.</li>
+          </ul>
+          <ul class="tech" aria-label="Technologies"><li>SwiftUI</li><li>Core NFC</li><li>SwiftData</li><li>CloudKit</li></ul>
+          <div class="app-foot">
+            <span class="badge dev">in development</span>
+            <a href="https://chrominskyy.github.io/tapvault-site/">Website ↗</a>
+            <a href="https://github.com/Chrominskyy/tapvault-site">Repo ↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="dotnet" aria-labelledby="dotnet-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="sec-num reveal">02 / Server side</p>
+          <h2 id="dotnet-h" class="reveal" style="--i:1">Built on<br><i>.NET 8.</i></h2>
+        </div>
+        <p class="reveal" style="--i:2">C# is where I started and where I still do most of my work: layered APIs with versioning, Swagger, EF Core, Redis and Docker, plus the shared building blocks that keep the next project shorter.</p>
+      </div>
+
+      <div class="ledger">
+        <a class="row reveal" href="https://github.com/Chrominskyy/TruckManagement">
+          <span class="yr">2026</span>
+          <span class="t">TruckManagement<small>ASP.NET Core · REST · clean architecture</small></span>
+          <span class="d">A fleet API split into Domain, Application, Infrastructure and API layers. Versioned CRUD endpoints with filtered, sorted search and tests.</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+        <a class="row reveal" href="https://github.com/Chrominskyy/Chrominsky.Utils">
+          <span class="yr">2025</span>
+          <span class="t">Chrominsky.Utils<small>NuGet · library · xUnit</small></span>
+          <span class="d">A base repository with automatic object versioning, soft delete, filtered search and pagination for SQL Server and PostgreSQL. Also includes a Redis cache with fallback, BCrypt hashing and an SMTP sender.</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+        <a class="row reveal" href="https://github.com/Chrominskyy/PromoCodeSampleDocker">
+          <span class="yr">2024</span>
+          <span class="t">PromoCodeSampleDocker<small>ASP.NET Core · EF Core · Redis · Docker</small></span>
+          <span class="d">A discount coupon service with API versioning, Swagger, Redis caching and object version history. Runs with a single <code>docker-compose up</code>.</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+        <a class="row reveal" href="https://github.com/Chrominskyy/SimpleTenant">
+          <span class="yr">2024</span>
+          <span class="t">SimpleTenant<small>ASP.NET Core MVC · Docker</small></span>
+          <span class="d">Tenant management with exact and partial-match search, plus edit, disable and restore flows.</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="principles" aria-labelledby="principles-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="sec-num reveal">03 / How I build</p>
+          <h2 id="principles-h" class="reveal" style="--i:1">Small promises,<br><i>kept.</i></h2>
+        </div>
+        <p class="reveal" style="--i:2">The same rules run through every repository above, from the website copy down to the commit history.</p>
+      </div>
+      <div class="principles">
+        <div class="p reveal" style="--i:0"><span class="n">i</span><h3>Private by default</h3><p>No analytics, tracking, cookies or third-party font services on the product sites. Credentials stay in the Keychain or the user's own files.</p></div>
+        <div class="p reveal" style="--i:1"><span class="n">ii</span><h3>Honest status</h3><p>Nothing is called available until it is. Every limitation is written down: what isn't supported, what needs real hardware, what the simulator can't do.</p></div>
+        <div class="p reveal" style="--i:2"><span class="n">iii</span><h3>Explicit over magic</h3><p>Saves happen when you choose. Conflicts are caught before they overwrite anything. Writes ask for confirmation and are read back to check them. Access is granted one directory at a time.</p></div>
+        <div class="p reveal" style="--i:3"><span class="n">iv</span><h3>Versioned &amp; verified</h3><p>Semantic versions, a changelog entry with every change, static checkers for the sites, xUnit for the backends, and protected main branches with code owner review.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="stack" aria-labelledby="stack-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="sec-num reveal">04 / Toolbox</p>
+          <h2 id="stack-h" class="reveal" style="--i:1">What I<br><i>reach for.</i></h2>
+        </div>
+        <p class="reveal" style="--i:2">.NET on the server and Swift on the device, with whatever else a project needs in between.</p>
+      </div>
+      <div class="stack">
+        <div class="col reveal" style="--i:0">
+          <h3>Server <span>C# / .NET 8</span></h3>
+          <ul>
+            <li>ASP.NET Core <span>REST, versioning, Swagger</span></li>
+            <li>Entity Framework Core <span>SQL Server, PostgreSQL</span></li>
+            <li>Redis <span>caching, fallback</span></li>
+            <li>DDD &amp; clean architecture <span>multi-tenancy</span></li>
+            <li>xUnit <span>tests</span></li>
+          </ul>
+        </div>
+        <div class="col reveal" style="--i:1">
+          <h3>Apple <span>Swift 6</span></h3>
+          <ul>
+            <li>SwiftUI &amp; AppKit <span>macOS, iOS, iPadOS</span></li>
+            <li>WidgetKit <span>desktop widgets</span></li>
+            <li>SwiftData &amp; CloudKit <span>private sync</span></li>
+            <li>Core NFC <span>NDEF read / write</span></li>
+            <li>Keychain &amp; Sandbox <span>least privilege</span></li>
+          </ul>
+        </div>
+        <div class="col reveal" style="--i:2">
+          <h3>Around it <span>delivery</span></h3>
+          <ul>
+            <li>Docker &amp; Compose <span>local stacks</span></li>
+            <li>Azure DevOps <span>pipelines, boards</span></li>
+            <li>AWS <span>IAM, STS, MFA</span></li>
+            <li>TypeScript &amp; React <span>front ends</span></li>
+            <li>GitHub Pages <span>static, no build step</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <p class="sec-num reveal">05 / Contact</p>
+      <h2 id="contact-h" class="reveal" style="--i:1">Got a problem that needs a <a href="https://github.com/Chrominskyy">focused tool?</a></h2>
+      <div class="meta reveal" style="--i:2">
+        <span><b>GitHub</b> · <a href="https://github.com/Chrominskyy">@Chrominskyy</a></span>
+        <span><b>Based in</b> · Poland</span>
+        <span><b>Languages</b> · English, Polish</span>
+        <span><b>App reports</b> · through each product's issue tracker</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Chrominsky</span>
+    <span>Static HTML · no tracking · no cookies</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.body.classList.remove('no-js');
+  var root = document.documentElement;
+  document.getElementById('theme').addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    var next = current === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
