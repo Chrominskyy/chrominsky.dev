@@ -3,19 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chrominsky | Software engineer</title>
-<meta name="description" content="Chrominsky: senior C# and .NET engineer building event-driven services on AWS and focused native apps for macOS, iOS and iPadOS: DevPulse, Mighty Markdown, CloudLatch, TapVault.">
+<title>Bartosz Chrominski | Senior .NET engineer</title>
+<meta name="description" content="Bartosz Chrominski (Chrominsky): senior C# and .NET engineer building event-driven services on AWS and focused native apps for macOS, iOS and iPadOS: DevPulse, Mighty Markdown, CloudLatch, TapVault.">
 <meta name="color-scheme" content="dark light">
-<meta property="og:title" content="Chrominsky | Software engineer">
-<meta property="og:description" content="Backend in C#. Apps in Swift. Built with care.">
+<meta property="og:title" content="Bartosz Chrominski | Senior .NET engineer">
+<meta property="og:description" content="Backend in C#. Apps in Swift. Built to be trusted. Event-driven .NET on AWS, plus native apps for macOS, iPhone and iPad.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://chrominsky.dev/">
+<meta property="og:image" content="https://chrominsky.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bartosz Chrominski. Backend in C#. Apps in Swift. Built to be trusted.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://chrominsky.dev/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161310'/%3E%3Cpath d='M41 20a15 15 0 1 0 0 24' fill='none' stroke='%23ffb224' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='45' cy='32' r='4' fill='%23ece4d4'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="en" href="https://chrominsky.dev/">
+<link rel="alternate" hreflang="pl" href="https://chrominsky.dev/pl/">
+<link rel="alternate" hreflang="x-default" href="https://chrominsky.dev/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,100..900,0..100;1,9..144,100..900,0..100&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/fraunces-normal-100-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-mono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bartosz Chrominski",
+  "alternateName": "Chrominsky",
+  "jobTitle": "Senior .NET Engineer",
+  "url": "https://chrominsky.dev/",
+  "email": "mailto:contact@chrominsky.dev",
+  "image": "https://chrominsky.dev/assets/og-image.png",
+  "address": { "@type": "PostalAddress", "addressCountry": "PL" },
+  "knowsLanguage": ["en", "pl"],
+  "knowsAbout": ["C#", ".NET", "ASP.NET Core", "AWS", "DynamoDB", "AWS Step Functions", "Pulumi", "Event sourcing", "Swift", "SwiftUI"],
+  "sameAs": ["https://github.com/Chrominskyy", "https://www.linkedin.com/in/chrominsky/"]
+}
+</script>
 <style>
 :root {
   --bg: #13110e;
@@ -25,7 +53,7 @@
   --line-strong: rgba(236, 228, 212, .24);
   --ink: #ece4d4;
   --ink-2: #b3a993;
-  --ink-3: #7d7461;
+  --ink-3: #9a907b;
   --amber: #ffb224;
   --amber-deep: #e08a00;
   --amber-glow: rgba(255, 178, 36, .16);
@@ -46,11 +74,11 @@
     --line-strong: rgba(32, 26, 18, .28);
     --ink: #1c1812;
     --ink-2: #4f4636;
-    --ink-3: #82765f;
-    --amber: #b8600a;
+    --ink-3: #6e634e;
+    --amber: #9a4f05;
     --amber-deep: #8f4700;
     --amber-glow: rgba(214, 120, 10, .14);
-    --mint: #12855a;
+    --mint: #0e6f4b;
     --rust: #c2401a;
     --grain-opacity: .05;
   }
@@ -58,9 +86,9 @@
 :root[data-theme="light"] {
   --bg: #f2ecdf; --bg-2: #e9e1d0; --panel: rgba(255, 251, 242, .78);
   --line: rgba(32, 26, 18, .13); --line-strong: rgba(32, 26, 18, .28);
-  --ink: #1c1812; --ink-2: #4f4636; --ink-3: #82765f;
-  --amber: #b8600a; --amber-deep: #8f4700; --amber-glow: rgba(214, 120, 10, .14);
-  --mint: #12855a; --rust: #c2401a; --grain-opacity: .05;
+  --ink: #1c1812; --ink-2: #4f4636; --ink-3: #6e634e;
+  --amber: #9a4f05; --amber-deep: #7a3d00; --amber-glow: rgba(214, 120, 10, .14);
+  --mint: #0e6f4b; --rust: #c2401a; --grain-opacity: .05;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -114,7 +142,8 @@ nav.links { display: flex; gap: clamp(12px, 2.4vw, 28px); font-size: 13px; }
 nav.links a { text-decoration: none; color: var(--ink-2); transition: color .2s; }
 nav.links a:hover { color: var(--amber); }
 nav.links a span { color: var(--ink-3); }
-@media (max-width: 640px) { nav.links a:not(.keep) { display: none; } }
+@media (max-width: 640px) { nav.links a:not(.keep) { display: none; } nav.links a span { display: none; } .top .wrap { gap: 10px; } }
+@media (max-width: 360px) { .mark span { display: none; } }
 
 /* ---------- hero ---------- */
 .hero { padding: clamp(56px, 10vw, 128px) 0 clamp(64px, 9vw, 120px); position: relative; }
@@ -233,6 +262,10 @@ h2 i { font-weight: 200; font-style: italic; color: var(--ink-2); }
 .app.markdown { --tint: #ff8a5c; }
 .app.cloudlatch { --tint: #3fb27f; }
 .app.tapvault { --tint: #6fe3b4; }
+.shot { margin: calc(-1 * clamp(22px, 3vw, 32px)) calc(-1 * clamp(22px, 3vw, 32px)) 24px; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--bg-2); }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.app.cloudlatch .shot img, .app.tapvault .shot img { object-position: center; }
+.app:hover .shot img { transform: scale(1.03); }
 .app-top { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
 .icon { width: 64px; height: 64px; border-radius: 15px; flex: none; box-shadow: 0 10px 24px -10px rgba(0,0,0,.6), 0 0 0 1px var(--line); overflow: hidden; background: #f8faf6; }
 .icon img { width: 100%; height: 100%; object-fit: cover; }
@@ -276,7 +309,7 @@ h2 i { font-weight: 200; font-style: italic; color: var(--ink-2); }
 .row:hover::before { width: 100%; }
 .row:hover { padding-left: 14px; }
 .row .yr { color: var(--ink-3); font-size: 13px; }
-.row .t { font-family: var(--serif); font-variation-settings: "opsz" 60; font-weight: 600; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.02em; line-height: 1.1; }
+.row .t { overflow-wrap: anywhere; min-width: 0; font-family: var(--serif); font-variation-settings: "opsz" 60; font-weight: 600; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.02em; line-height: 1.1; }
 .row .t small { display: block; font-family: var(--mono); font-size: 11.5px; font-weight: 400; color: var(--amber); letter-spacing: 0; margin-top: 6px; }
 .row .d { color: var(--ink-2); font-size: 13.5px; }
 .row .go { color: var(--ink-3); font-size: 18px; transition: transform .3s, color .3s; }
@@ -337,6 +370,9 @@ footer { padding: 28px 0 40px; color: var(--ink-3); font-size: 12px; border-top:
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
 /* theme toggle */
+.tools { display: flex; align-items: center; gap: 10px; flex: none; }
+.lang { font-size: 12px; font-weight: 600; text-decoration: none; color: var(--ink-2); border: 1px solid var(--line-strong); border-radius: 999px; height: 34px; min-width: 34px; padding: 0 10px; display: grid; place-items: center; transition: color .2s, border-color .2s; }
+.lang:hover { color: var(--amber); border-color: var(--amber); }
 .theme { background: none; border: 1px solid var(--line-strong); color: var(--ink-2); border-radius: 999px; width: 34px; height: 34px; display: grid; place-items: center; cursor: pointer; transition: color .2s, border-color .2s; flex: none; }
 .theme:hover { color: var(--amber); border-color: var(--amber); }
 .theme svg { width: 16px; height: 16px; }
@@ -373,9 +409,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       <a href="#stack"><span>04</span> Stack</a>
       <a href="#contact" class="keep"><span>05</span> Contact</a>
     </nav>
+    <div class="tools">
+    <a class="lang" href="pl/" hreflang="pl" lang="pl" aria-label="Wersja polska">PL</a>
     <button class="theme" type="button" aria-label="Toggle color theme" id="theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
     </button>
+    </div>
   </div>
 </header>
 
@@ -383,8 +422,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   <section class="hero" id="top">
     <div class="wrap hero-grid">
       <div>
-        <p class="kicker rise" style="--i:0"><span class="pulse" aria-hidden="true"></span>Senior .NET engineer · Poland · EN / PL</p>
-        <h1 class="name" aria-label="Chrominsky">
+        <p class="kicker rise" style="--i:0"><span class="pulse" aria-hidden="true"></span>Bartosz Chrominski · Senior .NET engineer · Poland</p>
+        <h1 class="name" aria-label="Bartosz Chrominski">
           <span aria-hidden="true"><span class="ch" style="--c:0">C</span><span class="ch" style="--c:1">h</span><span class="ch" style="--c:2">r</span><span class="ch" style="--c:3">o</span><span class="ch" style="--c:4">m</span><br><span class="ch" style="--c:5">i</span><span class="ch" style="--c:6">n</span><span class="ch" style="--c:7">s</span><span class="ch" style="--c:8">k</span><span class="ch" style="--c:9">y</span><span class="ch dot" style="--c:10">.</span></span>
         </h1>
         <p class="tagline rise" style="--i:3">Backend in C#. Apps in Swift. <i>Built to be trusted.</i></p>
@@ -430,6 +469,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 
       <div class="apps">
         <article class="app devpulse reveal" style="--i:0">
+          <figure class="shot"><img src="assets/shots/devpulse.webp" alt="DevPulse pipeline run view with stages, jobs and tasks" width="1100" height="688" loading="lazy" decoding="async"></figure>
           <div class="app-top">
             <div class="icon"><img src="assets/icons/devpulse.webp" alt="" width="64" height="64" loading="lazy"></div>
             <div><h3>DevPulse</h3><div class="platform">macOS · iOS · iPadOS</div></div>
@@ -449,6 +489,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </article>
 
         <article class="app markdown reveal" style="--i:1">
+          <figure class="shot"><img src="assets/shots/mighty-markdown.webp" alt="Mighty Markdown in Split mode, Markdown source beside the rendered preview" width="1100" height="688" loading="lazy" decoding="async"></figure>
           <div class="app-top">
             <div class="icon"><img src="assets/icons/mighty-markdown.webp" alt="" width="64" height="64" loading="lazy"></div>
             <div><h3>Mighty Markdown</h3><div class="platform">macOS</div></div>
@@ -468,6 +509,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </article>
 
         <article class="app cloudlatch reveal" style="--i:2">
+          <figure class="shot"><img src="assets/shots/cloudlatch.webp" alt="CloudLatch artwork: a brushed metal cloud with a green latch" width="1100" height="688" loading="lazy" decoding="async"></figure>
           <div class="app-top">
             <div class="icon svg"><img src="assets/icons/cloudlatch.svg" alt="" width="64" height="64" loading="lazy"></div>
             <div><h3>CloudLatch</h3><div class="platform">macOS menu bar</div></div>
@@ -487,6 +529,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </article>
 
         <article class="app tapvault reveal" style="--i:3">
+          <figure class="shot"><img src="assets/shots/tapvault.webp" alt="TapVault artwork: a glowing NFC symbol with orbit rings" width="1100" height="688" loading="lazy" decoding="async"></figure>
           <div class="app-top">
             <div class="icon"><img src="assets/icons/tapvault.webp" alt="" width="64" height="64" loading="lazy"></div>
             <div><h3>TapVault</h3><div class="platform">iPhone · iPad</div></div>
@@ -664,8 +707,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Chrominsky</span>
-    <span>Static HTML · no tracking · no cookies</span>
+    <span>© 2026 Bartosz Chrominski</span>
+    <span>Static HTML · self-hosted fonts · no tracking · no cookies</span>
   </div>
 </footer>
 
