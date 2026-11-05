@@ -76,7 +76,7 @@ PAIRS = [
     ('Desktop widgets for pinned runs. Sign in with Microsoft Entra ID or a personal access token.',
      'Widgety na pulpit dla przypiętych uruchomień. Logowanie przez Microsoft Entra ID albo personal access token.'),
     ('aria-label="Technologies"', 'aria-label="Technologie"', 4),
-    ('<span class="badge dev">in development</span>', '<span class="badge dev">w rozwoju</span>', 2),
+    ('<span class="badge dev">in development</span>', '<span class="badge dev">w trakcie rozwoju</span>', 2),
     ('>Website ↗</a>', '>Strona ↗</a>', 4),
     ('alt="Mighty Markdown in Split mode, Markdown source beside the rendered preview"', 'alt="Mighty Markdown w trybie Split: źródło Markdown obok podglądu"'),
     ('A native place to read, write and move around Markdown files.', 'Natywne miejsce do czytania, pisania i poruszania się po plikach Markdown.'),
