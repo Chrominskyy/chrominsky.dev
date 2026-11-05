@@ -10,4 +10,4 @@ Preview locally:
 python3 -m http.server 8765
 ```
 
-Publish: Settings > Pages > Deploy from branch `main`, root directory. Served at https://chrominskyy.github.io/ubiquitous-meme/.
+Live at https://chrominsky.dev, served by GitHub Pages from `main` (root). DNS is on Cloudflare, with A/AAAA records for GitHub Pages set to DNS only; the `CNAME` file holds the custom domain.
