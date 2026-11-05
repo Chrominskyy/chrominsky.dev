@@ -287,6 +287,16 @@ h2 i { font-weight: 200; font-style: italic; color: var(--ink-2); }
 
 /* principles */
 .p code { font-size: 12.5px; color: var(--amber); }
+.band-label { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 18px; display: flex; align-items: center; gap: 10px; }
+.band-label::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
+.band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-bottom: clamp(48px, 6vw, 80px); }
+@media (max-width: 1100px) { .band { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .band { grid-template-columns: 1fr; } }
+.cell { padding: 22px 22px 24px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); position: relative; overflow: hidden; }
+.cell::after { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 40%; background: linear-gradient(90deg, var(--amber), transparent); }
+.cell .k { font-size: 12px; color: var(--amber); }
+.cell h3 { font-family: var(--serif); font-variation-settings: "opsz" 36; font-weight: 700; font-size: 21px; letter-spacing: -.015em; line-height: 1.15; margin: 10px 0 10px; }
+.cell p { margin: 0; color: var(--ink-2); font-size: 13.5px; }
 .principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--panel); }
 @media (max-width: 1000px) { .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .principles { grid-template-columns: 1fr; } }
@@ -368,13 +378,16 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           <span aria-hidden="true"><span class="ch" style="--c:0">C</span><span class="ch" style="--c:1">h</span><span class="ch" style="--c:2">r</span><span class="ch" style="--c:3">o</span><span class="ch" style="--c:4">m</span><br><span class="ch" style="--c:5">i</span><span class="ch" style="--c:6">n</span><span class="ch" style="--c:7">s</span><span class="ch" style="--c:8">k</span><span class="ch" style="--c:9">y</span><span class="ch dot" style="--c:10">.</span></span>
         </h1>
         <p class="tagline rise" style="--i:3">Backend in C#. Apps in Swift. <i>Built to be trusted.</i></p>
-        <p class="lede rise" style="--i:4">Senior .NET engineer. By day I build event-driven services on AWS: DynamoDB, Step Functions, EventBridge and Pulumi, backed by tests I'd trust in production. After hours I build focused native apps for macOS, iPhone and iPad, each one doing a single job and claiming only what it can actually do.</p>
+        <p class="lede rise" style="--i:4">Senior .NET engineer. By day I build event-driven services on AWS (DynamoDB, Step Functions, EventBridge, Pulumi), track production defects down to a proven root cause, and ship test-first fixes. After hours I build focused native apps for macOS, iPhone and iPad, each one doing a single job and claiming only what it can actually do.</p>
         <div class="cta rise" style="--i:5">
           <a class="btn primary" href="#apps">See the apps
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
           <a class="btn" href="https://github.com/Chrominskyy" rel="me">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
             github.com/Chrominskyy</a>
+          <a class="btn" href="https://www.linkedin.com/in/chrominsky/" rel="me">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn</a>
         </div>
       </div>
 
@@ -495,6 +508,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <p class="reveal" style="--i:2">C# is where I started and where I still do most of my work. At my day job that means event-sourced domain services on AWS: DynamoDB key and GSI design, events published against expected versions, Step Functions orchestration, and table migrations run behind feature flags with dual projection and a planned cutover. In public, it means the libraries and reference APIs below.</p>
       </div>
 
+      <p class="band-label reveal">By day · production engineering on a multi-repo AWS platform</p>
+      <div class="band">
+        <div class="cell reveal" style="--i:0"><span class="k">01</span><h3>Root cause, proven</h3><p>Defects get traced through HAR files, CloudWatch logs and production data until the cause is proven. More than once that showed the ticket's original theory was wrong, so the real cause got fixed instead of a symptom.</p></div>
+        <div class="cell reveal" style="--i:1"><span class="k">02</span><h3>Test-first, verified live</h3><p>A failing test first, then the fix, self-review, PR and review comments. Done means confirmed on dev and stable through Step Function executions, DynamoDB state and latency checks, not just a green CI run.</p></div>
+        <div class="cell reveal" style="--i:2"><span class="k">03</span><h3>Flags &amp; migrations</h3><p>New behaviour ships behind AppConfig feature flags, with the code and config PRs kept separate. Reactors move to new projections, and tenant data migrates from written plans with a handover.</p></div>
+        <div class="cell reveal" style="--i:3"><span class="k">04</span><h3>On-call &amp; RCAs</h3><p>Incident triage across production regions: alarms, logs, queue redrives and follow-up tickets. Each incident closes with a short, client-ready RCA covering symptom, root cause, fix and status.</p></div>
+      </div>
+
       <div class="ledger">
         <a class="row reveal" href="https://github.com/Chrominskyy/TruckManagement">
           <span class="yr">2026</span>
@@ -539,7 +560,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <div class="p reveal" style="--i:2"><span class="n">iii</span><h3>Explicit over magic</h3><p>Saves happen when you choose. Conflicts are caught before they overwrite anything. Writes ask for confirmation and are read back to check them. Access is granted one directory at a time.</p></div>
         <div class="p reveal" style="--i:3"><span class="n">iv</span><h3>Preview before apply</h3><p>Infrastructure changes start with a <code>pulumi preview</code>. Deploys target dev only and touch as little as possible. Data migrations go through backup, restore and a feature flag, never a big-bang switch.</p></div>
         <div class="p reveal" style="--i:4"><span class="n">v</span><h3>Tested like it matters</h3><p>xUnit with explicit Moq setups and FluentAssertions. LocalStack and EventStoreDB fixtures for integration tests, Cypress on the front end. Semantic versions and a changelog entry with every change.</p></div>
-        <div class="p reveal" style="--i:5"><span class="n">vi</span><h3>AI does the work, I review it</h3><p>Agents run the long, shell-heavy loops: merges, previews, review fixes. I make them follow the repository's existing conventions and show the raw output behind every claim before anything ships.</p></div>
+        <div class="p reveal" style="--i:5"><span class="n">vi</span><h3>AI does the work, I review it</h3><p>Agents run the defect-to-PR loop: red, green, verify, review. I keep them on the repository's existing conventions and the smallest change that works, ask for the evidence behind every claim, and approve everything that others will see before it goes out.</p></div>
       </div>
     </div>
   </section>
@@ -573,6 +594,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
             <li>SQS · SNS · EventBridge <span>messaging</span></li>
             <li>ECS Fargate · AppConfig <span>runtime</span></li>
             <li>Pulumi <span>TypeScript IaC</span></li>
+            <li>CloudWatch Logs Insights <span>root cause</span></li>
             <li>LocalStack <span>integration tests</span></li>
           </ul>
         </div>
@@ -593,6 +615,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
             <li>Cypress <span>component, hooks</span></li>
             <li>Docker &amp; Compose <span>local stacks</span></li>
             <li>Azure DevOps · GitHub <span>CI, reviews</span></li>
+            <li>PagerDuty <span>on-call triage</span></li>
             <li>Claude Code <span>agents, skills, hooks</span></li>
             <li>Rider · Ubuntu · Nginx <span>daily tools</span></li>
           </ul>
@@ -604,9 +627,10 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
       <p class="sec-num reveal">05 / Contact</p>
-      <h2 id="contact-h" class="reveal" style="--i:1">Got a problem that needs a <a href="https://github.com/Chrominskyy">focused tool?</a></h2>
+      <h2 id="contact-h" class="reveal" style="--i:1">Got a problem that needs a <a href="https://www.linkedin.com/in/chrominsky/">focused tool?</a></h2>
       <div class="meta reveal" style="--i:2">
-        <span><b>GitHub</b> · <a href="https://github.com/Chrominskyy">@Chrominskyy</a></span>
+        <span><b>LinkedIn</b> · <a href="https://www.linkedin.com/in/chrominsky/" rel="me">in/chrominsky</a></span>
+        <span><b>GitHub</b> · <a href="https://github.com/Chrominskyy" rel="me">@Chrominskyy</a></span>
         <span><b>Based in</b> · Poland</span>
         <span><b>Languages</b> · English, Polish</span>
         <span><b>App reports</b> · through each product's issue tracker</span>
