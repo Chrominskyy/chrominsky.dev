@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chrominsky | Software engineer</title>
-<meta name="description" content="Chrominsky: C# and .NET backend engineer building focused native apps for macOS, iOS and iPadOS. DevPulse, Mighty Markdown, CloudLatch, TapVault and open .NET work.">
+<meta name="description" content="Chrominsky: senior C# and .NET engineer building event-driven services on AWS and focused native apps for macOS, iOS and iPadOS: DevPulse, Mighty Markdown, CloudLatch, TapVault.">
 <meta name="color-scheme" content="dark light">
 <meta property="og:title" content="Chrominsky | Software engineer">
 <meta property="og:description" content="Backend in C#. Apps in Swift. Built with care.">
@@ -286,7 +286,8 @@ h2 i { font-weight: 200; font-style: italic; color: var(--ink-2); }
 }
 
 /* principles */
-.principles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--panel); }
+.p code { font-size: 12.5px; color: var(--amber); }
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--panel); }
 @media (max-width: 1000px) { .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .principles { grid-template-columns: 1fr; } }
 .p { padding: clamp(22px, 2.6vw, 32px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
@@ -295,8 +296,9 @@ h2 i { font-weight: 200; font-style: italic; color: var(--ink-2); }
 .p p { margin: 0; color: var(--ink-2); font-size: 13.5px; }
 
 /* stack */
-.stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-@media (max-width: 900px) { .stack { grid-template-columns: 1fr; } }
+.stack { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 1100px) { .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .stack { grid-template-columns: 1fr; } }
 .col { padding: 26px 0 0; border-top: 2px solid var(--ink); }
 .col h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 18px; font-weight: 600; display: flex; justify-content: space-between; }
 .col h3 span { color: var(--ink-3); font-weight: 400; }
@@ -361,12 +363,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   <section class="hero" id="top">
     <div class="wrap hero-grid">
       <div>
-        <p class="kicker rise" style="--i:0"><span class="pulse" aria-hidden="true"></span>Software engineer · Poland · EN / PL</p>
+        <p class="kicker rise" style="--i:0"><span class="pulse" aria-hidden="true"></span>Senior .NET engineer · Poland · EN / PL</p>
         <h1 class="name" aria-label="Chrominsky">
           <span aria-hidden="true"><span class="ch" style="--c:0">C</span><span class="ch" style="--c:1">h</span><span class="ch" style="--c:2">r</span><span class="ch" style="--c:3">o</span><span class="ch" style="--c:4">m</span><br><span class="ch" style="--c:5">i</span><span class="ch" style="--c:6">n</span><span class="ch" style="--c:7">s</span><span class="ch" style="--c:8">k</span><span class="ch" style="--c:9">y</span><span class="ch dot" style="--c:10">.</span></span>
         </h1>
         <p class="tagline rise" style="--i:3">Backend in C#. Apps in Swift. <i>Built to be trusted.</i></p>
-        <p class="lede rise" style="--i:4">A .NET engineer who builds things end to end: versioned APIs and reusable libraries on the server, and focused native apps for macOS, iPhone and iPad. Each one does a single job well, keeps your data on your devices, and only claims what it can actually do.</p>
+        <p class="lede rise" style="--i:4">Senior .NET engineer. By day I build event-driven services on AWS: DynamoDB, Step Functions, EventBridge and Pulumi, backed by tests I'd trust in production. After hours I build focused native apps for macOS, iPhone and iPad, each one doing a single job and claiming only what it can actually do.</p>
         <div class="cta rise" style="--i:5">
           <a class="btn primary" href="#apps">See the apps
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
@@ -382,10 +384,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           <li class="stage ok" style="--s:0"><span class="glyph">✓</span><span class="label">Foundations in C#<small>desktop tools, first services</small></span><span class="time">2014</span></li>
           <li class="stage ok" style="--s:1"><span class="glyph">✓</span><span class="label">.NET 8 backends<small>clean architecture, Redis, Docker</small></span><span class="time">2024</span></li>
           <li class="stage ok child" style="--s:2"><span class="glyph">✓</span><span class="label">Chrominsky.Utils on NuGet</span><span class="time">lib</span></li>
-          <li class="stage running" style="--s:3"><span class="glyph">●</span><span class="label">Native Apple apps<small>SwiftUI, WidgetKit, iCloud</small></span><span class="time">2026</span></li>
-          <li class="stage running child" style="--s:4"><span class="glyph">●</span><span class="label">DevPulse · Mighty Markdown</span><span class="time">macOS</span></li>
-          <li class="stage running child" style="--s:5"><span class="glyph">●</span><span class="label">CloudLatch · TapVault</span><span class="time">mac / iOS</span></li>
-          <li class="stage queued" style="--s:6"><span class="glyph">○</span><span class="label">App Store release<small>not started</small></span><span class="time">next</span></li>
+          <li class="stage running" style="--s:3"><span class="glyph">●</span><span class="label">Event-driven AWS<small>DynamoDB, Step Functions, Pulumi</small></span><span class="time">day job</span></li>
+          <li class="stage running" style="--s:4"><span class="glyph">●</span><span class="label">Native Apple apps<small>SwiftUI, WidgetKit, iCloud</small></span><span class="time">2026</span></li>
+          <li class="stage running child" style="--s:5"><span class="glyph">●</span><span class="label">DevPulse · Mighty Markdown</span><span class="time">macOS</span></li>
+          <li class="stage running child" style="--s:6"><span class="glyph">●</span><span class="label">CloudLatch · TapVault</span><span class="time">mac / iOS</span></li>
+          <li class="stage queued" style="--s:7"><span class="glyph">○</span><span class="label">App Store release<small>not started</small></span><span class="time">next</span></li>
         </ol>
         <div class="run-foot"><span>4 apps · 4 .NET repos public</span><span>view: <code>ascii</code></span></div>
       </aside>
@@ -489,7 +492,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           <p class="sec-num reveal">02 / Server side</p>
           <h2 id="dotnet-h" class="reveal" style="--i:1">Built on<br><i>.NET 8.</i></h2>
         </div>
-        <p class="reveal" style="--i:2">C# is where I started and where I still do most of my work: layered APIs with versioning, Swagger, EF Core, Redis and Docker, plus the shared building blocks that keep the next project shorter.</p>
+        <p class="reveal" style="--i:2">C# is where I started and where I still do most of my work. At my day job that means event-sourced domain services on AWS: DynamoDB key and GSI design, events published against expected versions, Step Functions orchestration, and table migrations run behind feature flags with dual projection and a planned cutover. In public, it means the libraries and reference APIs below.</p>
       </div>
 
       <div class="ledger">
@@ -534,7 +537,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <div class="p reveal" style="--i:0"><span class="n">i</span><h3>Private by default</h3><p>No analytics, tracking, cookies or third-party font services on the product sites. Credentials stay in the Keychain or the user's own files.</p></div>
         <div class="p reveal" style="--i:1"><span class="n">ii</span><h3>Honest status</h3><p>Nothing is called available until it is. Every limitation is written down: what isn't supported, what needs real hardware, what the simulator can't do.</p></div>
         <div class="p reveal" style="--i:2"><span class="n">iii</span><h3>Explicit over magic</h3><p>Saves happen when you choose. Conflicts are caught before they overwrite anything. Writes ask for confirmation and are read back to check them. Access is granted one directory at a time.</p></div>
-        <div class="p reveal" style="--i:3"><span class="n">iv</span><h3>Versioned &amp; verified</h3><p>Semantic versions, a changelog entry with every change, static checkers for the sites, xUnit for the backends, and protected main branches with code owner review.</p></div>
+        <div class="p reveal" style="--i:3"><span class="n">iv</span><h3>Preview before apply</h3><p>Infrastructure changes start with a <code>pulumi preview</code>. Deploys target dev only and touch as little as possible. Data migrations go through backup, restore and a feature flag, never a big-bang switch.</p></div>
+        <div class="p reveal" style="--i:4"><span class="n">v</span><h3>Tested like it matters</h3><p>xUnit with explicit Moq setups and FluentAssertions. LocalStack and EventStoreDB fixtures for integration tests, Cypress on the front end. Semantic versions and a changelog entry with every change.</p></div>
+        <div class="p reveal" style="--i:5"><span class="n">vi</span><h3>AI does the work, I review it</h3><p>Agents run the long, shell-heavy loops: merges, previews, review fixes. I make them follow the repository's existing conventions and show the raw output behind every claim before anything ships.</p></div>
       </div>
     </div>
   </section>
@@ -546,20 +551,32 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
           <p class="sec-num reveal">04 / Toolbox</p>
           <h2 id="stack-h" class="reveal" style="--i:1">What I<br><i>reach for.</i></h2>
         </div>
-        <p class="reveal" style="--i:2">.NET on the server and Swift on the device, with whatever else a project needs in between.</p>
+        <p class="reveal" style="--i:2">.NET and AWS on the server, Swift on the device, React where the product needs it, and an agent doing the repetitive work.</p>
       </div>
       <div class="stack">
         <div class="col reveal" style="--i:0">
           <h3>Server <span>C# / .NET 8</span></h3>
           <ul>
-            <li>ASP.NET Core <span>REST, versioning, Swagger</span></li>
-            <li>Entity Framework Core <span>SQL Server, PostgreSQL</span></li>
-            <li>Redis <span>caching, fallback</span></li>
-            <li>DDD &amp; clean architecture <span>multi-tenancy</span></li>
-            <li>xUnit <span>tests</span></li>
+            <li>ASP.NET Core <span>Web API, MVC Razor</span></li>
+            <li>EF Core <span>SQL Server, PostgreSQL</span></li>
+            <li>MediatR &amp; DDD <span>commands, multi-tenancy</span></li>
+            <li>EventStoreDB <span>event sourcing, gRPC</span></li>
+            <li>xUnit · Moq <span>FluentAssertions</span></li>
+            <li>Serilog · Redis <span>logging, caching</span></li>
           </ul>
         </div>
         <div class="col reveal" style="--i:1">
+          <h3>Cloud <span>AWS · eu-west-1</span></h3>
+          <ul>
+            <li>DynamoDB <span>PK/SK, GSIs, migrations</span></li>
+            <li>Step Functions · Lambda <span>orchestration</span></li>
+            <li>SQS · SNS · EventBridge <span>messaging</span></li>
+            <li>ECS Fargate · AppConfig <span>runtime</span></li>
+            <li>Pulumi <span>TypeScript IaC</span></li>
+            <li>LocalStack <span>integration tests</span></li>
+          </ul>
+        </div>
+        <div class="col reveal" style="--i:2">
           <h3>Apple <span>Swift 6</span></h3>
           <ul>
             <li>SwiftUI &amp; AppKit <span>macOS, iOS, iPadOS</span></li>
@@ -569,14 +586,15 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
             <li>Keychain &amp; Sandbox <span>least privilege</span></li>
           </ul>
         </div>
-        <div class="col reveal" style="--i:2">
+        <div class="col reveal" style="--i:3">
           <h3>Around it <span>delivery</span></h3>
           <ul>
+            <li>React · TypeScript <span>microfrontends</span></li>
+            <li>Cypress <span>component, hooks</span></li>
             <li>Docker &amp; Compose <span>local stacks</span></li>
-            <li>Azure DevOps <span>pipelines, boards</span></li>
-            <li>AWS <span>IAM, STS, MFA</span></li>
-            <li>TypeScript &amp; React <span>front ends</span></li>
-            <li>GitHub Pages <span>static, no build step</span></li>
+            <li>Azure DevOps · GitHub <span>CI, reviews</span></li>
+            <li>Claude Code <span>agents, skills, hooks</span></li>
+            <li>Rider · Ubuntu · Nginx <span>daily tools</span></li>
           </ul>
         </div>
       </div>
@@ -592,6 +610,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <span><b>Based in</b> · Poland</span>
         <span><b>Languages</b> · English, Polish</span>
         <span><b>App reports</b> · through each product's issue tracker</span>
+        <span><b>Off the clock</b> · rebuilding a 1994 MX-5, Home Assistant, ESP32</span>
       </div>
     </div>
   </section>
