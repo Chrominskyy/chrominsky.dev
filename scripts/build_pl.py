@@ -19,7 +19,9 @@ PAIRS = [
     # ---- head
     ('<html lang="en">', '<html lang="pl">'),
     ('<title>Bartosz Chrominski | Senior .NET engineer</title>',
-     '<title>Bartosz Chrominski | Senior .NET engineer</title>'),
+     '<title>Bartosz Chrominski | Senior .NET engineer, backend i aplikacje Apple</title>'),
+    ('<meta property="og:title" content="Bartosz Chrominski | Senior .NET engineer">',
+     '<meta property="og:title" content="Bartosz Chrominski | Senior .NET engineer, backend i aplikacje Apple">'),
     ('content="Bartosz Chrominski (Chrominsky): senior C# and .NET engineer building event-driven services on AWS and focused native apps for macOS, iOS and iPadOS: DevPulse, Mighty Markdown, CloudLatch, TapVault."',
      'content="Bartosz Chrominski (Chrominsky): senior C# i .NET engineer. Buduje serwisy event-driven na AWS oraz natywne aplikacje na macOS, iOS i iPadOS: DevPulse, Mighty Markdown, CloudLatch, TapVault."'),
     ('<meta property="og:description" content="Backend in C#. Apps in Swift. Built to be trusted. Event-driven .NET on AWS, plus native apps for macOS, iPhone and iPad.">',
