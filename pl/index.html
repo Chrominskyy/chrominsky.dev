@@ -31,17 +31,59 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Bartosz Chrominski",
-  "alternateName": "Chrominsky",
-  "jobTitle": "Senior .NET Engineer",
-  "url": "https://chrominsky.dev/",
-  "email": "mailto:contact@chrominsky.dev",
-  "image": "https://chrominsky.dev/assets/og-image.png",
-  "address": { "@type": "PostalAddress", "addressCountry": "PL" },
-  "knowsLanguage": ["en", "pl"],
-  "knowsAbout": ["C#", ".NET", "ASP.NET Core", "AWS", "DynamoDB", "AWS Step Functions", "Pulumi", "Event sourcing", "Swift", "SwiftUI"],
-  "sameAs": ["https://github.com/Chrominskyy", "https://www.linkedin.com/in/chrominsky/"]
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://chrominsky.dev/#person",
+      "name": "Bartosz Chrominski",
+      "alternateName": [
+        "Chrominsky",
+        "Bartosz Chromiński"
+      ],
+      "jobTitle": "Senior .NET Engineer",
+      "url": "https://chrominsky.dev/",
+      "email": "mailto:contact@chrominsky.dev",
+      "image": "https://chrominsky.dev/assets/og-image.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PL"
+      },
+      "knowsLanguage": [
+        "en",
+        "pl"
+      ],
+      "knowsAbout": [
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "AWS",
+        "DynamoDB",
+        "AWS Step Functions",
+        "Pulumi",
+        "Event sourcing",
+        "Swift",
+        "SwiftUI"
+      ],
+      "sameAs": [
+        "https://github.com/Chrominskyy",
+        "https://www.linkedin.com/in/chrominsky/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://chrominsky.dev/#website",
+      "name": "Chrominsky",
+      "alternateName": "Bartosz Chrominski",
+      "url": "https://chrominsky.dev/",
+      "inLanguage": [
+        "en",
+        "pl"
+      ],
+      "author": {
+        "@id": "https://chrominsky.dev/#person"
+      }
+    }
+  ]
 }
 </script>
 <style>
