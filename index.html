@@ -31,17 +31,59 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Bartosz Chrominski",
-  "alternateName": "Chrominsky",
-  "jobTitle": "Senior .NET Engineer",
-  "url": "https://chrominsky.dev/",
-  "email": "mailto:contact@chrominsky.dev",
-  "image": "https://chrominsky.dev/assets/og-image.png",
-  "address": { "@type": "PostalAddress", "addressCountry": "PL" },
-  "knowsLanguage": ["en", "pl"],
-  "knowsAbout": ["C#", ".NET", "ASP.NET Core", "AWS", "DynamoDB", "AWS Step Functions", "Pulumi", "Event sourcing", "Swift", "SwiftUI"],
-  "sameAs": ["https://github.com/Chrominskyy", "https://www.linkedin.com/in/chrominsky/"]
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://chrominsky.dev/#person",
+      "name": "Bartosz Chrominski",
+      "alternateName": [
+        "Chrominsky",
+        "Bartosz Chromiński"
+      ],
+      "jobTitle": "Senior .NET Engineer",
+      "url": "https://chrominsky.dev/",
+      "email": "mailto:contact@chrominsky.dev",
+      "image": "https://chrominsky.dev/assets/og-image.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PL"
+      },
+      "knowsLanguage": [
+        "en",
+        "pl"
+      ],
+      "knowsAbout": [
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "AWS",
+        "DynamoDB",
+        "AWS Step Functions",
+        "Pulumi",
+        "Event sourcing",
+        "Swift",
+        "SwiftUI"
+      ],
+      "sameAs": [
+        "https://github.com/Chrominskyy",
+        "https://www.linkedin.com/in/chrominsky/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://chrominsky.dev/#website",
+      "name": "Chrominsky",
+      "alternateName": "Bartosz Chrominski",
+      "url": "https://chrominsky.dev/",
+      "inLanguage": [
+        "en",
+        "pl"
+      ],
+      "author": {
+        "@id": "https://chrominsky.dev/#person"
+      }
+    }
+  ]
 }
 </script>
 <style>
@@ -381,6 +423,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 /* ---------- motion: staggered load ---------- */
 .rise { opacity: 0; transform: translateY(22px); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(var(--i, 0) * 110ms + 80ms); }
 @keyframes rise { to { opacity: 1; transform: none; } }
+/* The hero text holds the LCP element: start it at once and keep the entrance short. */
+.kicker.rise, .tagline.rise, .lede.rise { animation-duration: .5s; animation-delay: 0s; }
 .name .ch { display: inline-block; opacity: 0; transform: translateY(.35em) rotate(4deg); animation: drop .9s cubic-bezier(.2,.9,.25,1.1) forwards; animation-delay: calc(var(--c) * 45ms + 160ms); }
 @keyframes drop { to { opacity: 1; transform: none; } }
 .stage { opacity: 0; animation: rise .6s ease-out forwards; animation-delay: calc(var(--s) * 180ms + 900ms); transform: translateX(-8px); }
@@ -470,7 +514,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 
       <div class="apps">
         <article class="app devpulse reveal" style="--i:0">
-          <figure class="shot"><img src="assets/shots/devpulse.webp" alt="DevPulse pipeline run view with stages, jobs and tasks" width="1100" height="688" loading="lazy" decoding="async"></figure>
+          <figure class="shot"><img src="assets/shots/devpulse.webp" srcset="assets/shots/devpulse-480.webp 480w, assets/shots/devpulse-760.webp 760w, assets/shots/devpulse.webp 1100w" sizes="(max-width: 860px) calc(100vw - 34px), (max-width: 1240px) 45vw, 560px" alt="DevPulse pipeline run view with stages, jobs and tasks" width="1100" height="688" loading="lazy" decoding="async"></figure>
           <div class="app-top">
             <div class="icon"><img src="assets/icons/devpulse.webp" alt="" width="64" height="64" loading="lazy"></div>
             <div><h3>DevPulse</h3><div class="platform">macOS · iOS · iPadOS</div></div>
@@ -489,7 +533,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </article>
 
         <article class="app markdown reveal" style="--i:1">
-          <figure class="shot"><img src="assets/shots/mighty-markdown.webp" alt="Mighty Markdown in Split mode, Markdown source beside the rendered preview" width="1100" height="688" loading="lazy" decoding="async"></figure>
+          <figure class="shot"><img src="assets/shots/mighty-markdown.webp" srcset="assets/shots/mighty-markdown-480.webp 480w, assets/shots/mighty-markdown-760.webp 760w, assets/shots/mighty-markdown.webp 1100w" sizes="(max-width: 860px) calc(100vw - 34px), (max-width: 1240px) 45vw, 560px" alt="Mighty Markdown in Split mode, Markdown source beside the rendered preview" width="1100" height="688" loading="lazy" decoding="async"></figure>
           <div class="app-top">
             <div class="icon"><img src="assets/icons/mighty-markdown.webp" alt="" width="64" height="64" loading="lazy"></div>
             <div><h3>Mighty Markdown</h3><div class="platform">macOS</div></div>
@@ -508,7 +552,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </article>
 
         <article class="app cloudlatch reveal" style="--i:2">
-          <figure class="shot"><img src="assets/shots/cloudlatch.webp" alt="CloudLatch artwork: a brushed metal cloud with a green latch" width="1100" height="688" loading="lazy" decoding="async"></figure>
+          <figure class="shot"><img src="assets/shots/cloudlatch.webp" srcset="assets/shots/cloudlatch-480.webp 480w, assets/shots/cloudlatch-760.webp 760w, assets/shots/cloudlatch.webp 1100w" sizes="(max-width: 860px) calc(100vw - 34px), (max-width: 1240px) 45vw, 560px" alt="CloudLatch artwork: a brushed metal cloud with a green latch" width="1100" height="688" loading="lazy" decoding="async"></figure>
           <div class="app-top">
             <div class="icon svg"><img src="assets/icons/cloudlatch.svg" alt="" width="64" height="64" loading="lazy"></div>
             <div><h3>CloudLatch</h3><div class="platform">macOS menu bar</div></div>
@@ -527,7 +571,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </article>
 
         <article class="app tapvault reveal" style="--i:3">
-          <figure class="shot"><img src="assets/shots/tapvault.webp" alt="TapVault artwork: a glowing NFC symbol with orbit rings" width="1100" height="688" loading="lazy" decoding="async"></figure>
+          <figure class="shot"><img src="assets/shots/tapvault.webp" srcset="assets/shots/tapvault-480.webp 480w, assets/shots/tapvault-760.webp 760w, assets/shots/tapvault.webp 1100w" sizes="(max-width: 860px) calc(100vw - 34px), (max-width: 1240px) 45vw, 560px" alt="TapVault artwork: a glowing NFC symbol with orbit rings" width="1100" height="688" loading="lazy" decoding="async"></figure>
           <div class="app-top">
             <div class="icon"><img src="assets/icons/tapvault.webp" alt="" width="64" height="64" loading="lazy"></div>
             <div><h3>TapVault</h3><div class="platform">iPhone · iPad</div></div>
