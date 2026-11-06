@@ -34,6 +34,9 @@ PAIRS = [
     ('<link rel="canonical" href="https://chrominsky.dev/">', '<link rel="canonical" href="https://chrominsky.dev/pl/">'),
     ('href="assets/', 'href="../assets/', None),
     ('src="assets/', 'src="../assets/', None),
+    ('srcset="assets/', 'srcset="../assets/', None),
+    (' 480w, assets/', ' 480w, ../assets/', None),
+    (' 760w, assets/', ' 760w, ../assets/', None),
 
     # ---- header
     ('<a class="skip" href="#main">Skip to content</a>', '<a class="skip" href="#main">Przejdź do treści</a>'),
