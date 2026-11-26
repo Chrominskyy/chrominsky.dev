@@ -90,7 +90,7 @@ PAIRS = [
      'Tryby Read, Edit i Split, w których źródło i podgląd pokazują ten sam fragment dokumentu.'),
     ('A filterable heading outline and a draggable minimap for long files.', 'Filtrowany spis nagłówków i przeciągana minimapa dla długich plików.'),
     ('Your files stay ordinary .md files. No account, analytics or advertising.', 'Twoje pliki pozostają zwykłymi plikami .md. Bez konta, analityki i reklam.'),
-    ('alt="CloudLatch artwork: a brushed metal cloud with a green latch"', 'alt="Grafika CloudLatch: chmura ze szczotkowanego metalu z zielonym zatrzaskiem"'),
+    ('alt="CloudLatch menu bar panel showing the active AWS profile, MFA and credential expiry"', 'alt="Panel CloudLatch w pasku menu z aktywnym profilem AWS, MFA i czasem wygaśnięcia poświadczeń"'),
     ('<div class="platform">macOS menu bar</div>', '<div class="platform">pasek menu macOS</div>'),
     ('AWS MFA sessions and IAM role switching from the menu bar.', 'Sesje AWS MFA i przełączanie ról IAM z paska menu.'),
     ('Assume a configured role with MFA, see when the role session expires, and get it renewed five minutes before it does.',
